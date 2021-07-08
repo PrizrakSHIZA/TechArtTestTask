@@ -7,7 +7,7 @@ using DG.Tweening;
 public class UIHandler : MonoBehaviour
 {
     TextMeshProUGUI[] Resources;
-    Transform[] Images;
+    public Transform[] Images;
 
     private void Awake()
     {
@@ -23,9 +23,12 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    public void AddResource(ResourceType type, int amount)
+    public void ChangeResource(ResourceType type)
     {
-        Images[(int)type].DOPunchScale(Vector3.one / 10f, 1f, 10);
+        Images[(int)type].DOPunchScale(Vector3.one / 10f, 1f, 10).OnStart(() => 
+        {
+            Images[(int)type].localScale = Vector3.one;
+        });
         Resources[(int)type].text = $": {PlayerDataHandler.data.Resources[(int)type]}";
     }
 }

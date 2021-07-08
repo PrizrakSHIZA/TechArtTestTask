@@ -63,10 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5303179268251049823}
-  target: {fileID: 0}
   timeToProduce: 4
   produceAmount: 3
   resourceToProduce: 0
+  requiredResources: []
+  NERText: {fileID: 6157250369494723258, guid: 2b477b349e78cd4429e27ea11cffe94b, type: 3}
   minDuration: 0
   maxDuration: 0
   easeType: 29
