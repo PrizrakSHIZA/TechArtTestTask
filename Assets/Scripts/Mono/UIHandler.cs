@@ -23,6 +23,14 @@ public class UIHandler : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        for (int i = 0; i < (int)ResourceType._NumberOfTypes; i++)
+        {
+            ChangeResource((ResourceType)i);
+        }
+    }
+
     public void ChangeResource(ResourceType type)
     {
         Images[(int)type].DOPunchScale(Vector3.one / 10f, 1f, 10).OnStart(() => 
@@ -30,5 +38,10 @@ public class UIHandler : MonoBehaviour
             Images[(int)type].localScale = Vector3.one;
         });
         Resources[(int)type].text = $": {PlayerDataHandler.data.Resources[(int)type]}";
+    }
+
+    public void BTNSave_OnClick()
+    {
+        SaveSystem.Save();
     }
 }
